@@ -1,5 +1,16 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1= "Login page"
+  p Welcome to Auth_simple
+  form(action="/login" method="POST").form-login
+        if (msgslogin)
+          .status= msgslogin
+        .form-login__line
+          label.form-login__label(for="") Привет,
+          br
+          input.form-login__input(type="text" name="name" placeholder="Логин" required)
+        .form-login__line
+          input.form-login__input(type="password" name="password" placeholder="Пароль" required)
+        .form-login__line
+          button(type="submit").form-login__button Войти
